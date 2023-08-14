@@ -13,10 +13,10 @@ document.getElementById('btn-submit').addEventListener('click', function(){
     // step-4: verify email and password
 
     if(email === '221902178@student.green.edu.bd' && password === 'r107754n'){
-        console.log('valid user');
+        window.location.href = 'bank.html';
     }
     else{
-        console.log('Invalid user.')
+        alert('Wrong email and password. Please try again.')
     }
 
 })
