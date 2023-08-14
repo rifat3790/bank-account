@@ -20,7 +20,7 @@ document.getElementById('btn-withdraw').addEventListener('click', function(){
 
     const currentWithdrawAmount = newWithdrawAmount + previousWithdrawTotalAmount;
 
-    withdrawTotalField.innerText = currentWithdrawAmount;
+    
 
     // balance field
     const blanceTotalElement = document.getElementById('blance-total');
@@ -31,7 +31,21 @@ document.getElementById('btn-withdraw').addEventListener('click', function(){
 
     const currentBlanceTotal = blanceTotalAmount - newWithdrawAmount;
 
-    blanceTotalElement.innerText = currentBlanceTotal;
+    
+
+    if(isNaN(newWithdrawAmount)){
+        return alert("Please enter valid numer.")
+    }
+    else if(newWithdrawAmount < 0){
+        return alert("Negative amount withdraw is not possible. Please enter positive amount");
+    }
+    else if(newWithdrawAmount > blanceTotalAmount){
+        return alert("Insufficient balance. Please waiting for deposit.")
+    }
+    else{
+        withdrawTotalField.innerText = currentWithdrawAmount;
+        blanceTotalElement.innerText = currentBlanceTotal;
+    }
     
 
     withdrawField.value = '';

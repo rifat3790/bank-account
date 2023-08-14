@@ -12,7 +12,7 @@ document.getElementById('btn-deposite').addEventListener('click', function(){
 
     const currentDepositeAmount = perviousDepositTotal + newDepositAmount;
 
-    depositTotalElement.innerText = currentDepositeAmount;
+    
 
 
     // get blance
@@ -24,7 +24,18 @@ document.getElementById('btn-deposite').addEventListener('click', function(){
 
     const currentBlanceTotal = perviousBlanceTotal + newDepositAmount;
 
-    blanceTotalElement.innerText = currentBlanceTotal;
+    
+
+    if(isNaN(newDepositAmount)){
+        return alert("This not a valid number. please enter the valid number.")
+    }
+    else if(newDepositAmount < 0){
+        return alert("Negative amount deposit is not possible. Please enter positive amount.")
+    }
+    else{
+        depositTotalElement.innerText = currentDepositeAmount;
+        blanceTotalElement.innerText = currentBlanceTotal;
+    }
 
 
     // clear the deposite field
